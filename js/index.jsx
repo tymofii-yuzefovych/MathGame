@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // get number entered by the player with the input
+        /* get number entered by the player with the input*/
         handleNameChange = (event) => {
             const cos1 = event.target.value;
             this.setState({wynik: cos1});
         };
 
-        // function creates two random numbers and adds to state
+        /* function creates two random numbers and adds to state*/
         randomNumbers = () => {
             const number1 = Math.floor(Math.random() * (10 - 1) + 1);
             const number2 = Math.floor(Math.random() * (10 - 1) + 1);
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         }
 
-        // In function call function randomNumbers and turns on interval and so on, check replies player and start function newGame or game over
+        /*  In function call function randomNumbers and turns on interval and so on, check replies player and start function newGame or game over */
         newGame = () => {
             this.randomNumbers();
             this.intervalId = setInterval(() => {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         }
 
-        // change states and enables interval to start game
+        /*  change states and enables interval to start game*/
         handleNewGameButtonClick = () => {
                 this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false, pointer:0, wynik:"",})
                 this.idInterval = setInterval(() => {
