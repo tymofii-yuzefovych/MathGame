@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         handleNewGameButtonClick = () => {
-                this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false})
+                this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false, pointer:0, wynik:"",})
                 this.idInterval = setInterval(() => {
                     this.setState({
                         timeToStart: this.state.timeToStart - 1
