@@ -25,11 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 timeToStart: 5
             }
         }
+
+        // get number entered by the player with the input
         handleNameChange = (event) => {
             const cos1 = event.target.value;
             this.setState({wynik: cos1});
         };
 
+        // function creates two random numbers and adds to state
         randomNumbers = () => {
             const number1 = Math.floor(Math.random() * (10 - 1) + 1);
             const number2 = Math.floor(Math.random() * (10 - 1) + 1);
@@ -38,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setState({num1: number1, num2: number2, counter: 3, disabled: "", sum: sum})
 
         }
+
+        // In function call function randomNumbers and turns on interval and so on, check replies player and start function newGame or game over
         newGame = () => {
             this.randomNumbers();
             this.intervalId = setInterval(() => {
@@ -59,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         }
 
+        // change states and enables interval to start game
         handleNewGameButtonClick = () => {
                 this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false, pointer:0, wynik:"",})
                 this.idInterval = setInterval(() => {
@@ -82,24 +88,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return (
                 <div className={"game"}>
                     <div className={'start'} style={{
-                        display: this.state.stanGame === false
-                            ? "none"
-                            : "block"
-                    }}>
+                        display: this.state.stanGame === false ? "none" : "block"}}>
                         <button onClick={this.handleNewGameButtonClick}>New Game</button>
                     </div>
                     <div className={'timeToStart'} style={{
-                        display: this.state.timeToStartStan === false
-                            ? "none"
-                            : "block"
-                    }}>
+                        display: this.state.timeToStartStan === false ? "none" : "block"}}>
                         <h2>Time to Start</h2><br/>
                         <span>{this.state.timeToStart}</span>
                     </div>
                     <div style={{
-                        display: this.state.stan === false
-                            ? "none"
-                            : "block"
+                        display: this.state.stan === false ? "none" : "block"
                     }} className={'game'}>
                         <h1>{this.state.num1}
                             &nbsp;+ {this.state.num2}
@@ -114,9 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h3>Score:&nbsp;{this.state.pointer}</h3>
                     </div>
                     <div style={{
-                        display: this.state.gameOver === false
-                            ? "none"
-                            : "block"
+                        display: this.state.gameOver === false ? "none" : "block"
                     }} className={"gameOver"}>
                         <h1>Game Over&nbsp;!</h1>
                         <h2>Your score :&nbsp;{this.state.pointer}</h2>
@@ -129,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
     class Template extends React.Component {
         constructor(props) {
             super(props);
-
         }
         render() {
             return (
