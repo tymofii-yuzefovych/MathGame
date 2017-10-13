@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             this.setState({num1: number1, num2: number2, counter: 3, disabled: "", sum: sum})
 
-        }
+        };
 
         /*  In function call function randomNumbers and turns on interval and so on, check replies player and start function newGame or game over */
         newGame = () => {
@@ -62,23 +62,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 })
             }, 1000);
-        }
+        };
 
         /*  change states and enables interval to start game*/
         handleNewGameButtonClick = () => {
-                this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false, pointer:0, wynik:"",})
+                this.setState({timeToStartStan: true, gameOver: false, timeToStart: 5, stanGame: false, pointer:0, wynik:""});
                 this.idInterval = setInterval(() => {
                     this.setState({
                         timeToStart: this.state.timeToStart - 1
                     }, () => {
                         if (this.state.timeToStart === 0) {
                             clearInterval(this.idInterval);
-                            this.setState({stan: true, timeToStartStan: false})
+                            this.setState({stan: true, timeToStartStan: false});
                             this.newGame();
                         }
                     })
                 }, 1000)
-            }
+            };
 
         componentWillUnmount() {
             clearInterval(this.intervalId);
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     class App extends React.Component {
-        render() {
+         render() {
             return <Router history={hashHistory}>
                 <Route path='/' component={Template}/>
                 <Route path='*' component={NotFound}/>
